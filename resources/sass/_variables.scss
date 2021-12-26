@@ -56,3 +56,29 @@ $cyan: #6cb2eb;
 .cyan{
     color: $cyan;
 }
+
+.fc-col-header{
+    background-color: #B900FF;
+
+}
+.fc-col-header-cell-cushion {
+    color: white !important;
+}
+
+.fc-button-primary{
+    color: white !important;
+    background-color: #B900FF !important;
+    border-color: #B900FF !important;
+
+}
+
+.fc-col-header-cell-cushion{
+    text-decoration: none !important;
+}
+
+.fc-daygrid-day-number{
+    color: #B900FF !important;
+    text-decoration: none;
+}
+
+

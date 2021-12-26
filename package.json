@@ -11,8 +11,7 @@
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
-        "axios": "^0.21",
-        "bootstrap": "^5.0.1",
+        "axios": "^0.21.4",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
@@ -25,11 +24,22 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
+        "@fullcalendar/bootstrap": "^5.10.1",
+        "@fullcalendar/core": "^5.10.1",
+        "@fullcalendar/daygrid": "^5.10.1",
+        "@fullcalendar/google-calendar": "^5.10.1",
+        "@fullcalendar/interaction": "^5.10.1",
+        "@fullcalendar/list": "^5.10.1",
+        "@fullcalendar/timegrid": "^5.10.1",
+        "@fullcalendar/vue": "^5.10.1",
         "admin-lte": "^3.0.0-alpha.2",
         "flat-icons": "^1.0.0",
         "jquery": "^3.6.0",
         "popper.js": "1.16.1",
+        "sweetalert2": "^11.3.0",
+        "vform": "^2.1.2",
         "vue": "^2.6.14",
-        "vue-router": "^3.5.3"
+        "vue-router": "^3.5.3",
+        "vue2-datepicker": "^3.10.4"
     }
 }

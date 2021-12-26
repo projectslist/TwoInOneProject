@@ -15,6 +15,40 @@ class CalendarController extends Controller
     public function index()
     {
         //
+
+//        return Calendar::latest()->get();
+//       $events =  Calendar::latest()->get();
+
+        $result = Calendar::get(['id','title','starts','ends','color']);
+        $events = [];
+
+        foreach ($result as $values) {
+            $event = [];
+
+            $event['id'] = $values->id;
+
+
+
+            $event['title'] = $values->title ;
+
+
+
+
+            $event['color'] = $values->color;
+            $event['start'] = $values->starts;
+            $event['end'] = $values->ends;
+
+
+
+
+            $events[] = $event;
+        }
+
+        return $events;
+
+
+
+
     }
 
     /**
@@ -36,6 +70,38 @@ class CalendarController extends Controller
     public function store(Request $request)
     {
         //
+       // return $request->all();
+
+       // return response()->json(['errors' => 'Sorry! You do not have permission for it.'], 422);
+
+
+
+                $this->validate($request,[
+                    'title' => 'required|string|max:191',
+                    'color' => 'required|string|max:20',
+                    'starts' => 'required',
+                    'ends' => 'required',
+
+                ]);
+
+
+
+
+
+
+
+
+        $eventStart = $request['date'] . " " . $request['starts'];
+        $eventEnd = $request['date'] . " " . $request['ends'];
+
+        return Calendar::create([
+            'title' => $request['title'],
+            'color' => $request['color'],
+            'ends' => $eventEnd,
+            'starts' => $eventStart,
+
+
+        ]);
     }
 
     /**
@@ -67,9 +133,32 @@ class CalendarController extends Controller
      * @param  \App\Models\Calendar  $calendar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Calendar $calendar)
+
+    public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request,[
+            'title' => 'required|string|max:191',
+            'color' => 'required|string|max:20',
+            'starts' => 'required',
+            'ends' => 'required',
+
+        ]);
+       $eventStart = $request['date'] . " " . $request['starts'];
+        $eventEnd = $request['date'] . " " . $request['ends'];
+      return  \DB::table('calendars')
+            ->where('id', $id)
+            ->update([
+                'title' => $request['title'],
+                'color' => $request['color'],
+                'ends' => $eventEnd,
+                'starts' => $eventStart,
+            ]);
+
+
+
+
+
     }
 
     /**
@@ -81,5 +170,6 @@ class CalendarController extends Controller
     public function destroy(Calendar $calendar)
     {
         //
+        $calendar->delete();
     }
 }

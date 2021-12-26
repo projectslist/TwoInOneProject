@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::resource('calendar','\App\Http\Controllers\CalendarController');
+
 Route::any('{all}', function () {
     return view('welcome');
 })->where(['all' => '.*']);
