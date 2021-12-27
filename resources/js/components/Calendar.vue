@@ -125,22 +125,26 @@
 
                                         <div class="col-12">
                                             <button @click.prevent="deleteEvent()"
-                                                    class="btn btn-danger float-left"
+                                                    class="btn btn-danger float-start"
                                                     type="submit"
                                                     v-show="eventEditmode && !showPleaseWaitBtn">Delete
                                             </button>
 
                                             <button @click.prevent="updateEvent()"
-                                                    class="btn btn-success float-right"
+                                                    class="btn btn-success float-end"
                                                     type="submit"
                                                     v-show="eventEditmode && !showPleaseWaitBtn">Update
                                             </button>
 
-                                            <button @click.prevent="createEvent()"
-                                                    class="btn btn-primary float-right btn-block"
-                                                    type="submit"
-                                                    v-show="!eventEditmode && !showPleaseWaitBtn">Create
-                                            </button>
+
+                                            <div class="d-grid gap-2">
+                                                <button @click.prevent="createEvent()"
+                                                        class="btn btn-primary"
+                                                        type="submit"
+                                                        v-show="!eventEditmode && !showPleaseWaitBtn">Create
+                                                </button>
+                                            </div>
+
                                             <button class="btn btn-primary float-right btn-block"
 
                                                     disabled
