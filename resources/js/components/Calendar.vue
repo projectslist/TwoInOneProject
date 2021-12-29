@@ -35,6 +35,8 @@
                             <div class="form-group">
 
 
+
+
                                 <input :class="{ 'is-invalid': eventForm.errors.has('title') }"
                                        aria-describedby="title"
                                        class="form-control"
@@ -145,15 +147,29 @@
                                                 </button>
                                             </div>
 
-                                            <button class="btn btn-primary float-right btn-block"
+<!--                                            <button class="btn btn-primary float-right btn-block"-->
 
-                                                    disabled
-                                                    type="submit" v-show="showPleaseWaitBtn">
-                                                <div class="spinner-border text-warning" role="status">
+<!--                                                    disabled-->
+<!--                                                    type="submit" v-show="showPleaseWaitBtn">-->
+<!--                                                <div class="spinner-border text-warning" role="status">-->
 
-                                                </div>
-                                                Please wait...
-                                            </button>
+<!--                                                </div>-->
+<!--                                                Please wait...-->
+<!--                                            </button>-->
+
+                                            <div class="center" v-show="showPleaseWaitBtn">
+
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                                <div class="wave"></div>
+                                            </div>
 
                                         </div>
 
@@ -574,5 +590,68 @@
 </script>
 
 <style scoped>
+
+    /*Please wait animation starts*/
+
+
+    .center {
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: gray;
+        border-radius: 20px;
+    }
+    .wave {
+        width: 5px;
+        height: 30px;
+        background: linear-gradient(45deg, cyan, #fff);
+        margin: 10px;
+        animation: wave 1s linear infinite;
+        border-radius: 20px;
+    }
+    .wave:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    .wave:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+    .wave:nth-child(4) {
+        animation-delay: 0.3s;
+    }
+    .wave:nth-child(5) {
+        animation-delay: 0.4s;
+    }
+    .wave:nth-child(6) {
+        animation-delay: 0.5s;
+    }
+    .wave:nth-child(7) {
+        animation-delay: 0.6s;
+    }
+    .wave:nth-child(8) {
+        animation-delay: 0.7s;
+    }
+    .wave:nth-child(9) {
+        animation-delay: 0.8s;
+    }
+    .wave:nth-child(10) {
+        animation-delay: 0.9s;
+    }
+
+    @keyframes wave {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+
+
+
+    /*Please wait animation ends*/
 
 </style>

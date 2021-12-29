@@ -15,6 +15,10 @@ class CalendarFactory extends Factory
     {
         return [
             //
+            'title' => $this->faker->title(),
+            'color' => 'red',
+            'starts' => '2021-12-21 09:00:00',
+            'ends' => '2021-12-21 11:00:00'
         ];
     }
 }
