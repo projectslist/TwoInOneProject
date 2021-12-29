@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CalendarMailSendingEvent;
 use App\Models\Calendar;
 use Illuminate\Http\Request;
 
@@ -94,6 +95,10 @@ class CalendarController extends Controller
         $eventStart = $request['date'] . " " . $request['starts'];
         $eventEnd = $request['date'] . " " . $request['ends'];
 
+        event(new CalendarMailSendingEvent($request->input('title'),$eventStart,
+            $eventEnd));
+
+
         return Calendar::create([
             'title' => $request['title'],
             'color' => $request['color'],
@@ -102,6 +107,7 @@ class CalendarController extends Controller
 
 
         ]);
+
     }
 
     /**
