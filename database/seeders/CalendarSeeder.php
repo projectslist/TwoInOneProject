@@ -14,5 +14,6 @@ class CalendarSeeder extends Seeder
     public function run()
     {
         //
+        \App\Models\Calendar::factory(2)->create();
     }
 }
