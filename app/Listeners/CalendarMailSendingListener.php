@@ -3,12 +3,14 @@
 namespace App\Listeners;
 
 use App\Events\CalendarMailSendingEvent;
+use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Mail\CalendarMailMessage;
 
-class CalendarMailSendingListener
+class CalendarMailSendingListener implements ShouldQueue
 {
+    use Queueable;
     /**
      * Create the event listener.
      *
