@@ -64003,7 +64003,7 @@ var render = function () {
                               "aria-describedby": "title",
                               id: "color",
                               placeholder: "Add Event Color. Exp: Red",
-                              type: "text",
+                              type: "color",
                             },
                             domProps: { value: _vm.eventForm.color },
                             on: {

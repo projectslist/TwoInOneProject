@@ -74,7 +74,7 @@
                                            aria-describedby="title"
                                            class="form-control"
                                            id="color"
-                                           placeholder="Add Event Color. Exp: Red" type="text" v-model="eventForm.color"
+                                           placeholder="Add Event Color. Exp: Red" type="color" v-model="eventForm.color"
                                     >
                                     <has-error :form="eventForm" field="color"></has-error>
 
