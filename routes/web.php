@@ -24,6 +24,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('calendar','\App\Http\Controllers\CalendarController');
 
+
+
+Route::get('tasks','\App\Http\Controllers\ToDoController@index');
+Route::patch('tasks/{id}', '\App\Http\Controllers\ToDoController@updateTasksStatus');
+Route::put('tasks/updateAll', '\App\Http\Controllers\ToDoController@updateTasksOrder');
+
+
+
 Route::any('{all}', function () {
     return view('welcome');
 })->where(['all' => '.*']);

@@ -41,6 +41,7 @@
         "vform": "^2.1.2",
         "vue": "^2.6.14",
         "vue-router": "^3.5.3",
-        "vue2-datepicker": "^3.10.4"
+        "vue2-datepicker": "^3.10.4",
+        "vuedraggable": "^2.24.3"
     }
 }

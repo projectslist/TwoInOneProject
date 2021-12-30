@@ -72,6 +72,8 @@ let routes = [
     { path: '/Calendar', component: require('./components/Calendar.vue').default },
     { path: '/ToDo', component: require('./components/ToDo.vue').default },
 
+
+
 ]
 
 

@@ -1,32 +1,194 @@
 <template>
-    <main>
-        <div class="bg-gray-light  m-5" style="margin-top: 100px!important; height: 100vh">
+    <main style="height: 100vh">
 
-            ToDo
 
-            <button type="button" class="btn btn-primary">Primary</button>
-            <button type="button" class="btn btn-secondary">Secondary</button>
-            <button type="button" class="btn btn-success">Success</button>
-            <button type="button" class="btn btn-danger">Danger</button>
-            <button type="button" class="btn btn-warning">Warning</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-light">Light</button>
-            <button type="button" class="btn btn-dark">Dark</button>
+            <div class="row" style="margin-top: 70px">
+                <div class="col">
+                    <div class="float-end">
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Task</button>
+                      
+                    </div>
+                </div>
 
-            <button type="button" class="btn btn-link">Link</button>
+            </div>
 
-            ==========
 
+
+
+    <div class="row">
+
+
+        <div class="col-md-4 col-md-offset-2">
+            <section class="task-area" style="background-color: navy;">
+                <header>Tasks List</header>
+                <draggable class="drag-area" :list="tasksList" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 0)"  @change="update">
+                    <article class="card" v-for="(task, index) in tasksList" :key="task.id" :task-id="task.id">
+                        <header>
+                            {{ task.title }}
+
+
+                        </header>
+
+                    </article>
+
+                </draggable>
+            </section>
         </div>
+
+
+
+        <div class="col-md-4 col-md-offset-2">
+            <section class="task-area" style="background-color: darkorange">
+                <header>In Progress Tasks</header>
+                <draggable class="drag-area" :list="tasksInProgress" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 1)"  @change="update">
+                    <article class="card" v-for="(task, index) in tasksInProgress" :key="task.id" :task-id="task.id">
+                        <header>
+                            {{ task.title }}
+
+
+                        </header>
+
+                    </article>
+
+                </draggable>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section class="task-area" style="background-color: green;">
+                <header>Completed Tasks</header>
+                <draggable class="drag-area"  :list="completedTasksList" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 2)"  @change="update">
+                    <article class="card" v-for="(task, index) in completedTasksList" :key="task.id" :task-id="task.id">
+                        <header>
+                            <strike>{{ task.title }}</strike>
+                        </header>
+                    </article>
+                </draggable>
+            </section>
+        </div>
+    </div>
+
+
     </main>
 </template>
 
 <script>
+    import draggable from 'vuedraggable'
+
     export default {
-        name: "ToDo"
+        name: "ToDo",
+        components: {
+            draggable
+        },
+        props: ['tasksCompleted', 'tasksNotCompleted'],
+        data() {
+            return {
+
+                tasksInProgress: this.tasksInProgress,
+                completedTasksList: this.tasksCompleted,
+                tasksList: this.tasksList
+
+            }
+        },
+        methods: {
+
+
+            getTasks(){
+
+
+                axios.get('/tasks').then((data) => {
+                    this.completedTasksList = data.data[0];
+                    this.tasksInProgress = data.data[1]
+                    this.tasksList = data.data[2]
+
+                })
+            },
+            moveTaskToOtherArea(event, status) {
+                let id = event.item.getAttribute('task-id');
+
+                axios.patch('/tasks/' + id, {
+                    status: status
+                }).then((response) => {
+                    // console.log(response.data);
+                    Toast.fire({
+                        icon: 'success',
+                        title: response.data
+                    })
+                }).catch((error) => {
+                    // console.log(error);
+                    Toast.fire({
+                        icon: 'error',
+                        title: response.data
+                    })
+                })
+            },
+            update() {
+                this.tasksInProgress.map((task, index) => {
+                    task.order = index + 1;
+                });
+
+                this.completedTasksList.map((task, index) => {
+                    task.order = index + 1;
+                });
+
+                this.tasksList.map((task, index) => {
+                    task.order = index + 1;
+                });
+
+                let tasks = this.tasksInProgress.concat(this.completedTasksList,this.tasksList);
+
+
+
+                axios.put('/tasks/updateAll', {
+
+                    tasks: tasks
+                }).then((response) => {
+                    // console.log(response.data);
+
+                }).catch((error) => {
+                    // console.log(error);
+                })
+            }
+
+        },created() {
+            this.getTasks();
+
+        }
     }
 </script>
 
-<style scoped>
+<style>
+    .task-area {
 
+        border-radius: 3px;
+        margin: 5px 5px;
+        padding: 10px;
+        width: 100%;
+    }
+    .task-area>header {
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        line-height: 28px;
+        cursor: grab;
+    }
+    .task-area article {
+        border-radius: 3px;
+        margin-top: 10px;
+    }
+
+    .task-area .card {
+        background-color: #FFF;
+        border-bottom: 1px solid #CCC;
+        padding: 15px 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    .task-area .card:hover {
+        background-color: #F0F0F0;
+    }
+    .drag-area{
+        min-height: 10px;
+    }
 </style>

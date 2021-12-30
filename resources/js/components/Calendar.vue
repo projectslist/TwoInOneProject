@@ -319,10 +319,7 @@
     },
         methods:{
 
-            // testMethod(info){
-            //     console.log(info.event.id);
-            //
-            // },
+
 
             eventMoving(info){
                 console.log("event id=" + info.event.color);
