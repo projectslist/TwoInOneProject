@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class CalendarSeeder extends Seeder
+class ToDoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class CalendarSeeder extends Seeder
     public function run()
     {
         //
-        \App\Models\Calendar::factory(1)->create();
+        \App\Models\ToDo::factory(10)->create();
     }
 }

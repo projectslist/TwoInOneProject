@@ -6,7 +6,75 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+$myblue: #3490dc;
+$myindigo: #6574cd;
+$mypurple: #9561e2;
+$mypink: #f66d9b;
+$myred: #e3342f;
+$myorange: #f6993f;
+$myyellow: #ffed4a;
+$mygreen: #38c172;
+$myteal: #4dc0b5;
+$mycyan: #6cb2eb;
 
+
+
+.myblue{
+    color: $myblue;
+}
+
+.myindigo{
+    color: $myindigo;
+}
+
+.mypurple{
+    color: $mypurple;
+}
+.mypink{
+    color: $mypink;
+}
+
+.myred{
+    color: $myred;
+}
+
+
+.myorange{
+    color: $myorange;
+}
+.myyellow{
+    color: $myyellow;
+}
+
+.mygreen{
+    color: $mygreen;
+}
+
+
+.myteal{
+    color: $myteal;
+}
+.mycyan{
+    color: $mycyan;
+}
+.myorange{
+    color: $myorange;
+}
+.myyellow{
+    color: $myyellow;
+}
+
+.mygreen{
+    color: $mygreen;
+}
+
+
+.myteal{
+    color: $myteal;
+}
+.mycyan{
+    color: $mycyan;
+}
 
 .fc-col-header{
     background-color: #B900FF;

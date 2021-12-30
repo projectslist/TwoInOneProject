@@ -20,6 +20,20 @@ class ToDoController extends Controller
         return  [$tasksCompleted,$tasksNotCompleted,$tasksList];
     }
 
+    public function addTask(Request $request){
+        $this->validate($request,[
+            'taskTitle' => 'required'
+        ]);
+
+        ToDo::create([
+            'title' => $request['taskTitle'],
+
+            'status' => 0
+        ]);
+
+        return response('Task has been created successfully.', 200);
+    }
+
     public function updateTasksStatus(Request $request, $id)
     {
         $this->validate($request, [

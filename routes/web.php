@@ -27,6 +27,7 @@ Route::resource('calendar','\App\Http\Controllers\CalendarController');
 
 
 Route::get('tasks','\App\Http\Controllers\ToDoController@index');
+Route::post('addTask','\App\Http\Controllers\ToDoController@addTask');
 Route::patch('tasks/{id}', '\App\Http\Controllers\ToDoController@updateTasksStatus');
 Route::put('tasks/updateAll', '\App\Http\Controllers\ToDoController@updateTasksOrder');
 

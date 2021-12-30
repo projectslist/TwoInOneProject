@@ -21049,7 +21049,6 @@ __webpack_require__.r(__webpack_exports__);
         _this6.loadEvents();
       })["catch"](function (error) {
         var errorMessage = error.response.data['message'];
-        console.log("response" + errorMessage);
         Toast.fire({
           icon: 'error',
           //title: 'Sorry. Something went wrong!'
@@ -21141,6 +21140,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard"
 });
@@ -21158,6 +21253,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -21297,6 +21431,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ToDo",
@@ -21308,17 +21477,37 @@ __webpack_require__.r(__webpack_exports__);
     return {
       tasksInProgress: this.tasksInProgress,
       completedTasksList: this.tasksCompleted,
-      tasksList: this.tasksList
+      tasksList: this.tasksList,
+      form: new Form({
+        id: "",
+        taskTitle: ""
+      })
     };
   },
   methods: {
-    getTasks: function getTasks() {
+    addTask: function addTask() {
       var _this = this;
 
+      this.form.post('addTask').then(function (response) {
+        Toast.fire({
+          icon: 'success',
+          title: response.data
+        });
+        $("#addTaskModal").modal("hide");
+
+        _this.getTasks();
+      });
+    },
+    openModal: function openModal() {
+      $("#addTaskModal").modal("show");
+    },
+    getTasks: function getTasks() {
+      var _this2 = this;
+
       axios.get('/tasks').then(function (data) {
-        _this.completedTasksList = data.data[0];
-        _this.tasksInProgress = data.data[1];
-        _this.tasksList = data.data[2];
+        _this2.completedTasksList = data.data[0];
+        _this2.tasksInProgress = data.data[1];
+        _this2.tasksList = data.data[2];
       });
     },
     moveTaskToOtherArea: function moveTaskToOtherArea(event, status) {
@@ -68177,7 +68366,168 @@ var staticRenderFns = [
           staticClass: "bg-gray-light  m-5",
           staticStyle: { "margin-top": "100px!important", height: "100vh" },
         },
-        [_vm._v("\n\n        Dashboard\n\n    ")]
+        [
+          _c(
+            "section",
+            { staticClass: "my-5 text-center", attrs: { id: "activities" } },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col bg-secondary rounded mb-4 pt-5" },
+                    [
+                      _c("div", { staticClass: "info-header mb-5 mt-5" }, [
+                        _c("h1", { staticClass: "text-info pb-3 fw-bold" }, [
+                          _vm._v(
+                            "\n                                Projects\n                            "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "lead text-white" }, [
+                          _vm._v(
+                            "\n                               There are total two different projects. One of them is about a fullcalendar system and the other one is about ToDo List.\n                                Drag and Drop feature has been used in the projects! I hope you enjoy  projects.\n                            "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("hr", { staticClass: "text-white" }),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "row mt-5 h-100 d-flex justify-content-center align-items-center",
+                  },
+                  [
+                    _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card border-success shadow p-3 mb-5 bg-white rounded",
+                        },
+                        [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("img", {
+                              staticClass:
+                                "img-fluid\n                  rounded-circle w-50 mb-3",
+                              attrs: { src: "img/calendar.png", alt: "" },
+                            }),
+                            _vm._v(" "),
+                            _c("h3", [_vm._v("Full Calendar")]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "\n                                   Fully manageable full calendar project.\n                                "
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "d-flex justify-content-center" },
+                              [
+                                _c("div", { staticClass: "p-4" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", {
+                                      staticClass:
+                                        "fab fa-facebook fa-2x text-primary",
+                                    }),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "p-4" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", {
+                                      staticClass:
+                                        "fab fa-twitter fa-2x text-info",
+                                    }),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "p-4" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", {
+                                      staticClass:
+                                        "fab fa-instagram fa-2x text-warning",
+                                    }),
+                                  ]),
+                                ]),
+                              ]
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card border-warning shadow p-3 mb-5 bg-white rounded",
+                        },
+                        [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("img", {
+                              staticClass:
+                                "img-fluid\n                      rounded-circle w-50 mb-3",
+                              attrs: { src: "img/task.jpg", alt: "" },
+                            }),
+                            _vm._v(" "),
+                            _c("h3", [_vm._v("To Do")]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "\n                                    Easy to manage all task with nice drag and drop feature!\n                                "
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "d-flex justify-content-center" },
+                              [
+                                _c("div", { staticClass: "p-4" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", {
+                                      staticClass:
+                                        "fab fa-facebook fa-2x text-primary",
+                                    }),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "p-4" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", {
+                                      staticClass:
+                                        "fab fa-twitter fa-2x text-info",
+                                    }),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "p-4" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", {
+                                      staticClass:
+                                        "fab fa-instagram fa-2x text-warning",
+                                    }),
+                                  ]),
+                                ]),
+                              ]
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]
+          ),
+        ]
       ),
     ])
   },
@@ -68212,11 +68562,71 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("main", [
-      _c(
-        "div",
-        { staticClass: "bg-dark text-white text-center position-sticky" },
-        [_vm._v("\n        Footer area\n    ")]
-      ),
+      _c("footer", [
+        _c("nav", { staticClass: "navbar fixed-bottom navbar-dark bg-dark" }, [
+          _c(
+            "div",
+            { staticClass: "container-fluid text-white text-decoration-none" },
+            [
+              _c("p", [
+                _vm._v("© 2017-2021 Company, Inc. ·\n                    "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-decoration-none\n        text-white",
+                    attrs: { href: "#" },
+                  },
+                  [_vm._v("Privacy")]
+                ),
+                _vm._v("\n                    ·"),
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-decoration-none text-white",
+                    attrs: { href: "#" },
+                  },
+                  [_vm._v("Terms")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-decoration-none text-white",
+                    attrs: { href: "#" },
+                  },
+                  [_vm._v("Back to top")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "footer-social" }, [
+                _c("span", [_vm._v("Follow us on:")]),
+                _vm._v(" "),
+                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-facebook fa-1x" }),
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-twitter fa-1x" }),
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-instagram-square fa-1x" }),
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-youtube-squar fa-1x" }),
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-tiktok fa-1x" }),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
+      ]),
     ])
   },
 ]
@@ -68248,8 +68658,8 @@ var render = function () {
       { staticClass: "navbar fixed-top navbar-expand-lg navbar-dark bg-dark " },
       [
         _c("div", { staticClass: "container-fluid" }, [
-          _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("Navbar"),
+          _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+            _vm._v("MyLogo"),
           ]),
           _vm._v(" "),
           _vm._m(0),
@@ -68337,7 +68747,17 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticStyle: { height: "100vh" } }, [
-    _vm._m(0),
+    _c("div", { staticClass: "row", staticStyle: { "margin-top": "70px" } }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "float-end" }, [
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", on: { click: _vm.openModal } },
+            [_c("i", { staticClass: "fas fa-plus" }), _vm._v(" Add Task")]
+          ),
+        ]),
+      ]),
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-4 col-md-offset-2" }, [
@@ -68494,6 +68914,84 @@ var render = function () {
         ),
       ]),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "addTaskModal",
+          tabindex: "-1",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.addTask()
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.taskTitle,
+                            expression: "form.taskTitle",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.form.errors.has("taskTitle"),
+                        },
+                        attrs: {
+                          type: "text",
+                          name: "name",
+                          id: "taskTitle",
+                          placeholder: "Task Title",
+                        },
+                        domProps: { value: _vm.form.taskTitle },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "taskTitle", $event.target.value)
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "taskTitle" },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(1),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -68501,20 +68999,34 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row", staticStyle: { "margin-top": "70px" } },
-      [
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "float-end" }, [
-            _c("button", { staticClass: "btn btn-primary" }, [
-              _c("i", { staticClass: "fas fa-plus" }),
-              _vm._v(" Add Task"),
-            ]),
-          ]),
-        ]),
-      ]
-    )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Add Task")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      ),
+    ])
   },
 ]
 render._withStripped = true

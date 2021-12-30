@@ -5,8 +5,8 @@
             <div class="row" style="margin-top: 70px">
                 <div class="col">
                     <div class="float-end">
-                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Task</button>
-                      
+                    <button class="btn btn-primary" @click="openModal"><i class="fas fa-plus"></i> Add Task</button>
+
                     </div>
                 </div>
 
@@ -68,6 +68,41 @@
     </div>
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form @submit.prevent="addTask()">
+                            <div class="form-group">
+                                <input
+                                    v-model="form.taskTitle"
+                                    :class="{ 'is-invalid': form.errors.has('taskTitle') }"
+                                    type="text"
+                                    name="name"
+                                    id="taskTitle"
+                                    placeholder="Task Title"
+                                    class="form-control"
+                                />
+                                <has-error :form="form" field="taskTitle"></has-error>
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </main>
 </template>
 
@@ -85,11 +120,32 @@
 
                 tasksInProgress: this.tasksInProgress,
                 completedTasksList: this.tasksCompleted,
-                tasksList: this.tasksList
+                tasksList: this.tasksList,
+
+
+                form: new Form({
+                    id:"",
+                    taskTitle:""
+                })
 
             }
         },
         methods: {
+
+            addTask(){
+              this.form.post('addTask').then((response)=>{
+                  Toast.fire({
+                      icon: 'success',
+                      title: response.data
+                  })
+                  $("#addTaskModal").modal("hide");
+                  this.getTasks();
+              })
+            },
+
+            openModal(){
+                $("#addTaskModal").modal("show");
+            },
 
 
             getTasks(){

@@ -477,7 +477,7 @@
                  }).catch((error) => {
 
                      let errorMessage = error.response.data['message'];
-                     console.log("response" + errorMessage);
+
                      Toast.fire({
                          icon: 'error',
                          //title: 'Sorry. Something went wrong!'
