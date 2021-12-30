@@ -21494,6 +21494,8 @@ __webpack_require__.r(__webpack_exports__);
         });
         $("#addTaskModal").modal("hide");
 
+        _this.form.reset();
+
         _this.getTasks();
       });
     },

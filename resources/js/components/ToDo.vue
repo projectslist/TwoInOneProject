@@ -139,6 +139,7 @@
                       title: response.data
                   })
                   $("#addTaskModal").modal("hide");
+                  this.form.reset();
                   this.getTasks();
               })
             },
