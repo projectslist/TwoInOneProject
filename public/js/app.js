@@ -21299,7 +21299,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -68377,7 +68376,7 @@ var staticRenderFns = [
                     "div",
                     { staticClass: "col bg-secondary rounded mb-4 pt-5" },
                     [
-                      _c("div", { staticClass: "info-header mb-5 mt-5" }, [
+                      _c("div", { staticClass: "info-header mb-5" }, [
                         _c("h1", { staticClass: "text-info pb-3 fw-bold" }, [
                           _vm._v(
                             "\n                                Projects\n                            "
@@ -68554,78 +68553,71 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("main", [
+    _c("footer", [
+      _c("nav", { staticClass: "navbar fixed-bottom navbar-dark bg-dark" }, [
+        _c(
+          "div",
+          { staticClass: "container-fluid text-white text-decoration-none" },
+          [
+            _c("p", { staticClass: "copyright" }, [
+              _vm._v(
+                "© Copyright " +
+                  _vm._s(new Date().getFullYear()) +
+                  "\n\n            "
+              ),
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+          ]
+        ),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("main", [
-      _c("footer", [
-        _c("nav", { staticClass: "navbar fixed-bottom navbar-dark bg-dark" }, [
-          _c(
-            "div",
-            { staticClass: "container-fluid text-white text-decoration-none" },
-            [
-              _c("p", [
-                _vm._v("© 2017-2021 Company, Inc. ·\n                    "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "text-decoration-none\n        text-white",
-                    attrs: { href: "#" },
-                  },
-                  [_vm._v("Privacy")]
-                ),
-                _vm._v("\n                    ·"),
-                _c(
-                  "a",
-                  {
-                    staticClass: "text-decoration-none text-white",
-                    attrs: { href: "#" },
-                  },
-                  [_vm._v("Terms")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "text-decoration-none text-white",
-                    attrs: { href: "#" },
-                  },
-                  [_vm._v("Back to top")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "footer-social" }, [
-                _c("span", [_vm._v("Follow us on:")]),
-                _vm._v(" "),
-                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fab fa-facebook fa-1x" }),
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fab fa-twitter fa-1x" }),
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fab fa-instagram-square fa-1x" }),
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fab fa-youtube-squar fa-1x" }),
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fab fa-tiktok fa-1x" }),
-                ]),
-              ]),
-            ]
-          ),
-        ]),
+    return _c("p", [
+      _c(
+        "a",
+        {
+          staticClass: "text-decoration-none text-white",
+          attrs: { href: "#" },
+        },
+        [_vm._v("Back to top")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer-social" }, [
+      _c("span", [_vm._v("Follow us on:")]),
+      _vm._v(" "),
+      _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fab fa-facebook fa-1x" }),
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fab fa-twitter fa-1x" }),
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fab fa-instagram-square fa-1x" }),
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fab fa-youtube-squar fa-1x" }),
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fab fa-tiktok fa-1x" }),
       ]),
     ])
   },

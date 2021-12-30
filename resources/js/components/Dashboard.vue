@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col bg-secondary rounded mb-4 pt-5">
-                            <div class="info-header mb-5 mt-5">
+                            <div class="info-header mb-5">
                                 <h1 class="text-info pb-3 fw-bold">
                                     Projects
                                 </h1>

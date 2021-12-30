@@ -4,11 +4,10 @@
         <footer>
             <nav class="navbar fixed-bottom navbar-dark bg-dark">
                 <div class="container-fluid text-white text-decoration-none">
-                    <p>&copy; 2017-2021 Company, Inc. &middot;
-                        <a href="#" class="text-decoration-none
-            text-white">Privacy</a>
-                        &middot;<a href="#" class="text-decoration-none text-white">Terms</a>
-                    </p>
+                    <p class="copyright">© Copyright {{ new Date().getFullYear() }}
+
+                </p>
+
 
                     <p><a href="#" class="text-decoration-none text-white">Back to top</a></p>
 
@@ -46,8 +45,10 @@
 </template>
 
 <script>
+
     export default {
         name: "Footer"
+
     }
 </script>
 
