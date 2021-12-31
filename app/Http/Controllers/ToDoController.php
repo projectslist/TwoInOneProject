@@ -13,15 +13,16 @@ class ToDoController extends Controller
     {
 
 
-        $tasksCompleted = ToDo::orderBy('order')->select('id','title','order','status')->where('status',2)->get();
-        $tasksNotCompleted = ToDo::orderBy('order')->select('id','title','order','status')->where('status',1)->get();
-        $tasksList = ToDo::orderBy('order')->select('id','title','order','status')->where('status',0)->get();
+        $tasksCompleted = ToDo::orderBy('order')->select('id', 'title', 'order', 'status')->where('status', 2)->get();
+        $tasksNotCompleted = ToDo::orderBy('order')->select('id', 'title', 'order', 'status')->where('status', 1)->get();
+        $tasksList = ToDo::orderBy('order')->select('id', 'title', 'order', 'status')->where('status', 0)->get();
 
-        return  [$tasksCompleted,$tasksNotCompleted,$tasksList];
+        return [$tasksCompleted, $tasksNotCompleted, $tasksList];
     }
 
-    public function addTask(Request $request){
-        $this->validate($request,[
+    public function addTask(Request $request)
+    {
+        $this->validate($request, [
             'taskTitle' => 'required'
         ]);
 

@@ -3,10 +3,6 @@
 
         <div class="bg-gray-light  m-5" style="margin-top: 100px!important; height: 100vh">
 
-
-
-
-
             <FullCalendar :options="calendarOptions" style="background-color: white; margin-bottom: 100px;"/>
 
         </div>
@@ -23,7 +19,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel" v-show="!eventEditmode">Add Event</h5>
                         <h5 class="modal-title" id="exampleModalLabel" v-show="eventEditmode">Update Event</h5>
-                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     </div>
                     <div class="modal-body">
@@ -35,16 +31,13 @@
                             <div class="form-group">
 
 
-
-
                                 <input :class="{ 'is-invalid': eventForm.errors.has('title') }"
                                        aria-describedby="title"
                                        class="form-control"
                                        id="title"
                                        placeholder="Event Title" type="text" v-model="eventForm.title"
-                                       >
+                                >
                                 <has-error :form="eventForm" field="title"></has-error>
-
 
 
                             </div>
@@ -52,7 +45,7 @@
 
 
                             <div class="row">
-                                <div class="col" >
+                                <div class="col">
 
                                     <date-picker :class="{ 'is-invalid': eventForm.errors.has('date') }"
                                                  class="form-group"
@@ -74,7 +67,8 @@
                                            aria-describedby="title"
                                            class="form-control"
                                            id="color"
-                                           placeholder="Add Event Color. Exp: Red" type="color" v-model="eventForm.color"
+                                           placeholder="Add Event Color. Exp: Red" type="color"
+                                           v-model="eventForm.color"
                                     >
                                     <has-error :form="eventForm" field="color"></has-error>
 
@@ -119,7 +113,6 @@
                             </div>
 
 
-
                             <div class="modal-footer">
 
                                 <div class="container">
@@ -147,15 +140,15 @@
                                                 </button>
                                             </div>
 
-<!--                                            <button class="btn btn-primary float-right btn-block"-->
+                                            <!--                                            <button class="btn btn-primary float-right btn-block"-->
 
-<!--                                                    disabled-->
-<!--                                                    type="submit" v-show="showPleaseWaitBtn">-->
-<!--                                                <div class="spinner-border text-warning" role="status">-->
+                                            <!--                                                    disabled-->
+                                            <!--                                                    type="submit" v-show="showPleaseWaitBtn">-->
+                                            <!--                                                <div class="spinner-border text-warning" role="status">-->
 
-<!--                                                </div>-->
-<!--                                                Please wait...-->
-<!--                                            </button>-->
+                                            <!--                                                </div>-->
+                                            <!--                                                Please wait...-->
+                                            <!--                                            </button>-->
 
                                             <div class="center" v-show="showPleaseWaitBtn">
 
@@ -193,13 +186,10 @@
         <!--        Event Adding Ends-->
 
 
-
     </main>
 </template>
 
 <script>
-
-
 
 
     import DatePicker from 'vue2-datepicker';
@@ -215,14 +205,12 @@
     import esLocale from '@fullcalendar/core/locales/en-gb';
 
 
-
-
     export default {
         name: "Calendar",
-        components:{
+        components: {
             FullCalendar
         },
-        data(){
+        data() {
             return {
 
                 disabled: false,
@@ -240,7 +228,6 @@
                     ends: '',
 
 
-
                 }),
 
                 calendarOptions: {
@@ -253,7 +240,7 @@
                     selectable: true,
                     displayEventEnd: true,
 
-                    locale:'en-gb',
+                    locale: 'en-gb',
 
                     eventResize: (info) => {
                         this.eventMoving(info);
@@ -261,16 +248,11 @@
                     },
 
 
-                    // eventDidMount:  (info) => {
-                    //     this.testMethod(info);
-                    // },
-
                     eventDrop: (info) => {
 
                         this.eventMoving(info);
 
                     },
-
 
 
                     select: (info) => {
@@ -306,8 +288,6 @@
                     },
 
 
-
-
                     events: "",
                     eventClick: info => {
 
@@ -316,15 +296,14 @@
                     },
 
 
+                }
             }
-        }
 
-    },
-        methods:{
-
+        },
+        methods: {
 
 
-            eventMoving(info){
+            eventMoving(info) {
                 console.log("event id=" + info.event.color);
                 console.log(info.event);
 
@@ -356,10 +335,10 @@
                 this.eventForm.ends = fullTimeEnd;
                 //Ends time ends
 
-                 this.eventForm.id = info.event.id;
-                 this.eventForm.title = info.event.title;
+                this.eventForm.id = info.event.id;
+                this.eventForm.title = info.event.title;
 
-                 this.eventForm.color = info.event.backgroundColor;
+                this.eventForm.color = info.event.backgroundColor;
 
                 this.showPleaseWaitBtn = true;
 
@@ -375,7 +354,8 @@
 
 
                 }).catch((error) => {
-                    let errorMessage = error.response.data['message'];;
+                    let errorMessage = error.response.data['message'];
+                    ;
 
                     Toast.fire({
                         icon: 'error',
@@ -387,12 +367,9 @@
                 })
 
 
-
-
-
             },
 
-            deleteEvent(){
+            deleteEvent() {
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert the rota!",
@@ -428,7 +405,7 @@
                 })
             },
 
-            updateEvent(){
+            updateEvent() {
 
                 this.showPleaseWaitBtn = true;
 
@@ -444,7 +421,8 @@
 
 
                 }).catch((error) => {
-                    let errorMessage = error.response.data['message'];;
+                    let errorMessage = error.response.data['message'];
+                    ;
 
                     Toast.fire({
                         icon: 'error',
@@ -457,7 +435,7 @@
 
             },
 
-            loadEvents(){
+            loadEvents() {
                 axios.get('/calendar').then((data) => {
                     this.calendarOptions.events = data.data;
 
@@ -465,32 +443,30 @@
 
             },
 
-            createEvent(){
+            createEvent() {
 
-                 this.eventForm.post('calendar').then(() => {
-                     $('#addEditEventModal').modal('hide');
-                     Toast.fire({
-                         icon: 'success',
-                         title: 'Event has been added!'
-                     })
-                     this.eventForm.reset();
+                this.eventForm.post('calendar').then(() => {
+                    $('#addEditEventModal').modal('hide');
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Event has been added!'
+                    })
+                    this.eventForm.reset();
 
-                     this.showPleaseWaitBtn = false;
-                     this.loadEvents();
-                 }).catch((error) => {
+                    this.showPleaseWaitBtn = false;
+                    this.loadEvents();
+                }).catch((error) => {
 
-                     let errorMessage = error.response.data['message'];
+                    let errorMessage = error.response.data['message'];
 
-                     Toast.fire({
-                         icon: 'error',
-                         //title: 'Sorry. Something went wrong!'
-                         title: errorMessage
-                     })
+                    Toast.fire({
+                        icon: 'error',
+                        //title: 'Sorry. Something went wrong!'
+                        title: errorMessage
+                    })
 
-                     this.showPleaseWaitBtn = false;
-                 });
-
-
+                    this.showPleaseWaitBtn = false;
+                });
 
 
             },
@@ -504,13 +480,11 @@
                 this.eventForm.reset();
                 this.eventEditmode = true;
 
-                    $('#addEditEventModal').modal('show');
+                $('#addEditEventModal').modal('show');
 
                 this.eventForm.id = info.event.id;
                 this.eventForm.color = info.event.backgroundColor;
                 this.eventForm.title = info.event.title;
-
-
 
 
                 //Starts time starts
@@ -546,38 +520,37 @@
             selectCalendar(info) {
 
                 this.eventForm.reset();
-                    this.eventEditmode = false;
-                    this.disabled = false;
-                    //Starts time starts
+                this.eventEditmode = false;
+                this.disabled = false;
+                //Starts time starts
 
-                    let newDateStarts = new Date(info.start);
+                let newDateStarts = new Date(info.start);
 
-                    var rangeFirstDay = (newDateStarts.getDate() < 10 ? '0' : '') + newDateStarts.getDate();
-                    var rangeFirstMonth = (newDateStarts.getMonth() < 9 ? '0' : '') + (newDateStarts.getMonth() + 1);
+                var rangeFirstDay = (newDateStarts.getDate() < 10 ? '0' : '') + newDateStarts.getDate();
+                var rangeFirstMonth = (newDateStarts.getMonth() < 9 ? '0' : '') + (newDateStarts.getMonth() + 1);
 
-                    var rangeFirstYear = newDateStarts.getFullYear();
-                    var fullOfRangeFirst = rangeFirstYear + "-" + rangeFirstMonth + "-" + rangeFirstDay;
+                var rangeFirstYear = newDateStarts.getFullYear();
+                var fullOfRangeFirst = rangeFirstYear + "-" + rangeFirstMonth + "-" + rangeFirstDay;
 
-                    this.eventForm.date = fullOfRangeFirst;
+                this.eventForm.date = fullOfRangeFirst;
 
-                    var getHours = (newDateStarts.getHours() < 10 ? '0' : '') + newDateStarts.getHours();
-                    var getMinutes = (newDateStarts.getMinutes() < 10 ? '0' : '') + newDateStarts.getMinutes();
-                    var fullTimeStart = getHours + ":" + getMinutes;
-                    this.eventForm.starts = fullTimeStart;
+                var getHours = (newDateStarts.getHours() < 10 ? '0' : '') + newDateStarts.getHours();
+                var getMinutes = (newDateStarts.getMinutes() < 10 ? '0' : '') + newDateStarts.getMinutes();
+                var fullTimeStart = getHours + ":" + getMinutes;
+                this.eventForm.starts = fullTimeStart;
 
 
-                    //Starts time ends
+                //Starts time ends
 
-                    //Ends time starts
+                //Ends time starts
 
-                    let newDateEnds = new Date(info.end);
-                    var getHours = (newDateEnds.getHours() < 10 ? '0' : '') + newDateEnds.getHours();
-                    var getMinutes = (newDateEnds.getMinutes() < 10 ? '0' : '') + newDateEnds.getMinutes();
-                    var fullTimeEnd = getHours + ":" + getMinutes;
-                    this.eventForm.ends = fullTimeEnd;
-                    //Ends time ends
-                    $('#addEditEventModal').modal('show');
-
+                let newDateEnds = new Date(info.end);
+                var getHours = (newDateEnds.getHours() < 10 ? '0' : '') + newDateEnds.getHours();
+                var getMinutes = (newDateEnds.getMinutes() < 10 ? '0' : '') + newDateEnds.getMinutes();
+                var fullTimeEnd = getHours + ":" + getMinutes;
+                this.eventForm.ends = fullTimeEnd;
+                //Ends time ends
+                $('#addEditEventModal').modal('show');
 
 
             },
@@ -592,7 +565,6 @@
 <style scoped>
 
 
-
     /*animation starts*/
 
 
@@ -604,6 +576,7 @@
         background: gray;
         border-radius: 20px;
     }
+
     .wave {
         width: 5px;
         height: 30px;
@@ -612,30 +585,39 @@
         animation: wave 1s linear infinite;
         border-radius: 20px;
     }
+
     .wave:nth-child(2) {
         animation-delay: 0.1s;
     }
+
     .wave:nth-child(3) {
         animation-delay: 0.2s;
     }
+
     .wave:nth-child(4) {
         animation-delay: 0.3s;
     }
+
     .wave:nth-child(5) {
         animation-delay: 0.4s;
     }
+
     .wave:nth-child(6) {
         animation-delay: 0.5s;
     }
+
     .wave:nth-child(7) {
         animation-delay: 0.6s;
     }
+
     .wave:nth-child(8) {
         animation-delay: 0.7s;
     }
+
     .wave:nth-child(9) {
         animation-delay: 0.8s;
     }
+
     .wave:nth-child(10) {
         animation-delay: 0.9s;
     }
@@ -653,12 +635,7 @@
     }
 
 
-
     /*animation ends*/
-
-
-
-
 
 
 </style>

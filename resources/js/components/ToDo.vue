@@ -2,71 +2,72 @@
     <main style="height: 100vh;">
 
 
-
-            <div class="row" style="margin-top: 70px">
-                <div class="col">
-                    <div class="float-end">
+        <div class="row" style="margin-top: 70px">
+            <div class="col">
+                <div class="float-end">
                     <button class="btn btn-primary" @click="openModal"><i class="fas fa-plus"></i> Add Task</button>
 
-                    </div>
                 </div>
+            </div>
 
+        </div>
+
+
+        <div class="row">
+
+
+            <div class="col-md-4 col-md-offset-2">
+                <section class="task-area" style="background-color: navy;">
+                    <header>Tasks List</header>
+                    <draggable class="drag-area" :list="tasksList" :options="{animation:200, group:'status'}"
+                               :element="'article'" @add="moveTaskToOtherArea($event, 0)" @change="update">
+                        <article class="card" v-for="(task, index) in tasksList" :key="task.id" :task-id="task.id">
+                            <header>
+                                {{ task.title }}
+
+
+                            </header>
+
+                        </article>
+
+                    </draggable>
+                </section>
             </div>
 
 
+            <div class="col-md-4 col-md-offset-2">
+                <section class="task-area" style="background-color: darkorange;">
+                    <header>In Progress Tasks</header>
+                    <draggable class="drag-area" :list="tasksInProgress" :options="{animation:200, group:'status'}"
+                               :element="'article'" @add="moveTaskToOtherArea($event, 1)" @change="update">
+                        <article class="card" v-for="(task, index) in tasksInProgress" :key="task.id"
+                                 :task-id="task.id">
+                            <header>
+                                {{ task.title }}
 
 
-    <div class="row">
+                            </header>
 
+                        </article>
 
-        <div class="col-md-4 col-md-offset-2">
-            <section class="task-area" style="background-color: navy;">
-                <header>Tasks List</header>
-                <draggable class="drag-area" :list="tasksList" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 0)"  @change="update">
-                    <article class="card" v-for="(task, index) in tasksList" :key="task.id" :task-id="task.id">
-                        <header>
-                            {{ task.title }}
-
-
-                        </header>
-
-                    </article>
-
-                </draggable>
-            </section>
+                    </draggable>
+                </section>
+            </div>
+            <div class="col-md-4">
+                <section class="task-area" style="background-color: green;">
+                    <header>Completed Tasks</header>
+                    <draggable class="drag-area" :list="completedTasksList" :options="{animation:200, group:'status'}"
+                               :element="'article'" @add="moveTaskToOtherArea($event, 2)" @change="update">
+                        <article class="card" v-for="(task, index) in completedTasksList" :key="task.id"
+                                 :task-id="task.id">
+                            <header>
+                                <strike>{{ task.title }}</strike>
+                            </header>
+                        </article>
+                    </draggable>
+                </section>
+            </div>
         </div>
-
-
-
-        <div class="col-md-4 col-md-offset-2">
-            <section class="task-area" style="background-color: darkorange;">
-                <header>In Progress Tasks</header>
-                <draggable class="drag-area" :list="tasksInProgress" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 1)"  @change="update">
-                    <article class="card" v-for="(task, index) in tasksInProgress" :key="task.id" :task-id="task.id">
-                        <header>
-                            {{ task.title }}
-
-
-                        </header>
-
-                    </article>
-
-                </draggable>
-            </section>
-        </div>
-        <div class="col-md-4">
-            <section class="task-area" style="background-color: green;">
-                <header>Completed Tasks</header>
-                <draggable class="drag-area"  :list="completedTasksList" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 2)"  @change="update">
-                    <article class="card" v-for="(task, index) in completedTasksList" :key="task.id" :task-id="task.id">
-                        <header>
-                            <strike>{{ task.title }}</strike>
-                        </header>
-                    </article>
-                </draggable>
-            </section>
-        </div>
-    </div>
 
 
         <!-- Modal -->
@@ -111,11 +112,14 @@
     import draggable from 'vuedraggable'
 
     export default {
+
         name: "ToDo",
         components: {
             draggable
         },
+
         props: ['tasksCompleted', 'tasksNotCompleted'],
+
         data() {
             return {
 
@@ -125,33 +129,34 @@
 
 
                 form: new Form({
-                    id:"",
-                    taskTitle:""
+                    id: "",
+                    taskTitle: ""
                 })
 
             }
         },
         methods: {
 
-            addTask(){
-              this.form.post('addTask').then((response)=>{
-                  Toast.fire({
-                      icon: 'success',
-                      title: response.data
-                  })
-                  $("#addTaskModal").modal("hide");
-                  this.form.reset();
-                  this.getTasks();
-              })
+            addTask() {
+
+                this.form.post('addTask').then((response) => {
+                    Toast.fire({
+                        icon: 'success',
+                        title: response.data
+                    })
+                    $("#addTaskModal").modal("hide");
+                    this.form.reset();
+                    this.getTasks();
+                })
             },
 
-            openModal(){
+            openModal() {
+
                 $("#addTaskModal").modal("show");
             },
 
 
-            getTasks(){
-
+            getTasks() {
 
                 axios.get('/tasks').then((data) => {
                     this.completedTasksList = data.data[0];
@@ -161,6 +166,7 @@
                 })
             },
             moveTaskToOtherArea(event, status) {
+
                 let id = event.item.getAttribute('task-id');
 
                 axios.patch('/tasks/' + id, {
@@ -180,6 +186,7 @@
                 })
             },
             update() {
+
                 this.tasksInProgress.map((task, index) => {
                     task.order = index + 1;
                 });
@@ -192,8 +199,7 @@
                     task.order = index + 1;
                 });
 
-                let tasks = this.tasksInProgress.concat(this.completedTasksList,this.tasksList);
-
+                let tasks = this.tasksInProgress.concat(this.completedTasksList, this.tasksList);
 
 
                 axios.put('/tasks/updateAll', {
@@ -207,7 +213,8 @@
                 })
             }
 
-        },created() {
+        }, created() {
+
             this.getTasks();
 
         }
@@ -222,7 +229,8 @@
         padding: 10px;
         width: 100%;
     }
-    .task-area>header {
+
+    .task-area > header {
         font-weight: bold;
         color: white;
         text-align: center;
@@ -230,6 +238,7 @@
         line-height: 28px;
         cursor: grab;
     }
+
     .task-area article {
         border-radius: 3px;
         margin-top: 10px;
@@ -243,10 +252,12 @@
         font-size: 16px;
         font-weight: bolder;
     }
+
     .task-area .card:hover {
         background-color: #F0F0F0;
     }
-    .drag-area{
+
+    .drag-area {
         min-height: 10px;
     }
 </style>

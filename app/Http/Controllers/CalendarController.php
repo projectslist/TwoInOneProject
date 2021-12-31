@@ -19,37 +19,21 @@ class CalendarController extends Controller
     {
         //
 
-//        return Calendar::latest()->get();
-//       $events =  Calendar::latest()->get();
 
-        $result = Calendar::get(['id','title','starts','ends','color']);
+        $result = Calendar::get(['id', 'title', 'starts', 'ends', 'color']);
         $events = [];
 
         foreach ($result as $values) {
             $event = [];
-
             $event['id'] = $values->id;
-
-
-
-            $event['title'] = $values->title ;
-
-
-
-
+            $event['title'] = $values->title;
             $event['color'] = $values->color;
             $event['start'] = $values->starts;
             $event['end'] = $values->ends;
-
-
-
-
             $events[] = $event;
         }
 
         return $events;
-
-
 
 
     }
@@ -67,32 +51,25 @@ class CalendarController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
-       // return $request->all();
 
-       // return response()->json(['errors' => 'Sorry! You do not have permission for it.'], 422);
+        $this->validate($request, [
+            'title' => 'required|string|max:191',
+            'color' => 'required|string|max:20',
+            'starts' => 'required',
+            'ends' => 'required',
 
-
-
-                $this->validate($request,[
-                    'title' => 'required|string|max:191',
-                    'color' => 'required|string|max:20',
-                    'starts' => 'required',
-                    'ends' => 'required',
-
-                ]);
-
+        ]);
 
 
         $eventStart = $request['date'] . " " . $request['starts'];
         $eventEnd = $request['date'] . " " . $request['ends'];
 
-        event(new CalendarMailSendingEvent($request->input('title'),$eventStart,
+        event(new CalendarMailSendingEvent($request->input('title'), $eventStart,
             $eventEnd));
 
         //I have also installed Observer with notify. So, when you create a event
@@ -103,7 +80,7 @@ class CalendarController extends Controller
         //You can use notify or event/listener . It is depend on the project.
 
 
-        return  Calendar::create([
+        return Calendar::create([
             'title' => $request['title'],
             'color' => $request['color'],
             'ends' => $eventEnd,
@@ -113,13 +90,12 @@ class CalendarController extends Controller
         ]);
 
 
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Calendar  $calendar
+     * @param \App\Models\Calendar $calendar
      * @return \Illuminate\Http\Response
      */
     public function show(Calendar $calendar)
@@ -130,7 +106,7 @@ class CalendarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Calendar  $calendar
+     * @param \App\Models\Calendar $calendar
      * @return \Illuminate\Http\Response
      */
     public function edit(Calendar $calendar)
@@ -141,24 +117,24 @@ class CalendarController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Calendar  $calendar
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Calendar $calendar
      * @return \Illuminate\Http\Response
      */
 
     public function update(Request $request, $id)
     {
 
-        $this->validate($request,[
+        $this->validate($request, [
             'title' => 'required|string|max:191',
             'color' => 'required|string|max:20',
             'starts' => 'required',
             'ends' => 'required',
 
         ]);
-       $eventStart = $request['date'] . " " . $request['starts'];
+        $eventStart = $request['date'] . " " . $request['starts'];
         $eventEnd = $request['date'] . " " . $request['ends'];
-      return  \DB::table('calendars')
+        return \DB::table('calendars')
             ->where('id', $id)
             ->update([
                 'title' => $request['title'],
@@ -168,15 +144,12 @@ class CalendarController extends Controller
             ]);
 
 
-
-
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Calendar  $calendar
+     * @param \App\Models\Calendar $calendar
      * @return \Illuminate\Http\Response
      */
     public function destroy(Calendar $calendar)
