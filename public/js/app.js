@@ -21465,6 +21465,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ToDo",
@@ -38476,7 +38477,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*Please wait animation starts*/\n.center[data-v-052a41a9] {\n    height: 30px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: gray;\n    border-radius: 20px;\n}\n.wave[data-v-052a41a9] {\n    width: 5px;\n    height: 30px;\n    background: linear-gradient(45deg, cyan, #fff);\n    margin: 10px;\n    -webkit-animation: wave-data-v-052a41a9 1s linear infinite;\n            animation: wave-data-v-052a41a9 1s linear infinite;\n    border-radius: 20px;\n}\n.wave[data-v-052a41a9]:nth-child(2) {\n    -webkit-animation-delay: 0.1s;\n            animation-delay: 0.1s;\n}\n.wave[data-v-052a41a9]:nth-child(3) {\n    -webkit-animation-delay: 0.2s;\n            animation-delay: 0.2s;\n}\n.wave[data-v-052a41a9]:nth-child(4) {\n    -webkit-animation-delay: 0.3s;\n            animation-delay: 0.3s;\n}\n.wave[data-v-052a41a9]:nth-child(5) {\n    -webkit-animation-delay: 0.4s;\n            animation-delay: 0.4s;\n}\n.wave[data-v-052a41a9]:nth-child(6) {\n    -webkit-animation-delay: 0.5s;\n            animation-delay: 0.5s;\n}\n.wave[data-v-052a41a9]:nth-child(7) {\n    -webkit-animation-delay: 0.6s;\n            animation-delay: 0.6s;\n}\n.wave[data-v-052a41a9]:nth-child(8) {\n    -webkit-animation-delay: 0.7s;\n            animation-delay: 0.7s;\n}\n.wave[data-v-052a41a9]:nth-child(9) {\n    -webkit-animation-delay: 0.8s;\n            animation-delay: 0.8s;\n}\n.wave[data-v-052a41a9]:nth-child(10) {\n    -webkit-animation-delay: 0.9s;\n            animation-delay: 0.9s;\n}\n@-webkit-keyframes wave-data-v-052a41a9 {\n0% {\n        transform: scale(0);\n}\n50% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes wave-data-v-052a41a9 {\n0% {\n        transform: scale(0);\n}\n50% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n\n\n\n/*Please wait animation ends*/\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*animation starts*/\n.center[data-v-052a41a9] {\n    height: 30px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: gray;\n    border-radius: 20px;\n}\n.wave[data-v-052a41a9] {\n    width: 5px;\n    height: 30px;\n    background: linear-gradient(45deg, cyan, #fff);\n    margin: 10px;\n    -webkit-animation: wave-data-v-052a41a9 1s linear infinite;\n            animation: wave-data-v-052a41a9 1s linear infinite;\n    border-radius: 20px;\n}\n.wave[data-v-052a41a9]:nth-child(2) {\n    -webkit-animation-delay: 0.1s;\n            animation-delay: 0.1s;\n}\n.wave[data-v-052a41a9]:nth-child(3) {\n    -webkit-animation-delay: 0.2s;\n            animation-delay: 0.2s;\n}\n.wave[data-v-052a41a9]:nth-child(4) {\n    -webkit-animation-delay: 0.3s;\n            animation-delay: 0.3s;\n}\n.wave[data-v-052a41a9]:nth-child(5) {\n    -webkit-animation-delay: 0.4s;\n            animation-delay: 0.4s;\n}\n.wave[data-v-052a41a9]:nth-child(6) {\n    -webkit-animation-delay: 0.5s;\n            animation-delay: 0.5s;\n}\n.wave[data-v-052a41a9]:nth-child(7) {\n    -webkit-animation-delay: 0.6s;\n            animation-delay: 0.6s;\n}\n.wave[data-v-052a41a9]:nth-child(8) {\n    -webkit-animation-delay: 0.7s;\n            animation-delay: 0.7s;\n}\n.wave[data-v-052a41a9]:nth-child(9) {\n    -webkit-animation-delay: 0.8s;\n            animation-delay: 0.8s;\n}\n.wave[data-v-052a41a9]:nth-child(10) {\n    -webkit-animation-delay: 0.9s;\n            animation-delay: 0.9s;\n}\n@-webkit-keyframes wave-data-v-052a41a9 {\n0% {\n        transform: scale(0);\n}\n50% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes wave-data-v-052a41a9 {\n0% {\n        transform: scale(0);\n}\n50% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n\n\n\n/*animation ends*/\n\n\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -67906,7 +67907,10 @@ var render = function () {
       },
       [
         _c("FullCalendar", {
-          staticStyle: { "background-color": "white" },
+          staticStyle: {
+            "background-color": "white",
+            "margin-bottom": "100px",
+          },
           attrs: { options: _vm.calendarOptions },
         }),
       ],
@@ -68600,8 +68604,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "footer-social" }, [
-      _c("span", [_vm._v("Follow us on:")]),
-      _vm._v(" "),
       _c("a", { staticClass: "text-warning", attrs: { href: "#" } }, [
         _c("i", { staticClass: "fab fa-facebook fa-1x" }),
       ]),
@@ -69051,16 +69053,20 @@ var render = function () {
       _c("Header"),
       _vm._v(" "),
       _c("div", { staticClass: "container-wrapper" }, [
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c(
-              "div",
-              { staticClass: "row bg-gray-light" },
-              [_c("router-view")],
-              1
-            ),
-          ]),
-        ]),
+        _c(
+          "div",
+          { staticClass: "content", staticStyle: { "margin-bottom": "300px" } },
+          [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c(
+                "div",
+                { staticClass: "row bg-gray-light" },
+                [_c("router-view")],
+                1
+              ),
+            ]),
+          ]
+        ),
       ]),
       _vm._v(" "),
       _c("Footer"),

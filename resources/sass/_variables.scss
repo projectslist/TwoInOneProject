@@ -99,3 +99,22 @@ $mycyan: #6cb2eb;
     color: #B900FF !important;
     text-decoration: none;
 }
+
+
+/*Calendar Mobile view starts*/
+@media (pointer: coarse) {
+    .fc-toolbar-title{
+        display: none;
+    }
+
+    .fc-today-button{
+        display: none !important;
+    }
+
+    .fc-col-header-cell-cushion{
+        font-size: 10px;
+    }
+
+}
+
+/*Calendar Mobile view ends*/

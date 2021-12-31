@@ -1,5 +1,6 @@
 <template>
-    <main style="height: 100vh">
+    <main style="height: 100vh;">
+
 
 
             <div class="row" style="margin-top: 70px">
@@ -38,7 +39,7 @@
 
 
         <div class="col-md-4 col-md-offset-2">
-            <section class="task-area" style="background-color: darkorange">
+            <section class="task-area" style="background-color: darkorange;">
                 <header>In Progress Tasks</header>
                 <draggable class="drag-area" :list="tasksInProgress" :options="{animation:200, group:'status'}" :element="'article'" @add="moveTaskToOtherArea($event, 1)"  @change="update">
                     <article class="card" v-for="(task, index) in tasksInProgress" :key="task.id" :task-id="task.id">

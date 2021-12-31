@@ -7,7 +7,7 @@
 
 
 
-            <FullCalendar :options="calendarOptions" style="background-color: white;"/>
+            <FullCalendar :options="calendarOptions" style="background-color: white; margin-bottom: 100px;"/>
 
         </div>
 
@@ -305,6 +305,9 @@
                         left: 'today,prev,next'
                     },
 
+
+
+
                     events: "",
                     eventClick: info => {
 
@@ -588,7 +591,9 @@
 
 <style scoped>
 
-    /*Please wait animation starts*/
+
+
+    /*animation starts*/
 
 
     .center {
@@ -649,6 +654,11 @@
 
 
 
-    /*Please wait animation ends*/
+    /*animation ends*/
+
+
+
+
+
 
 </style>

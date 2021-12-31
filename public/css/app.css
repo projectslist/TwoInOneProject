@@ -83,6 +83,21 @@
   text-decoration: none;
 }
 
+/*Calendar Mobile view starts*/
+@media (pointer: coarse) {
+  .fc-toolbar-title {
+    display: none;
+  }
+
+  .fc-today-button {
+    display: none !important;
+  }
+
+  .fc-col-header-cell-cushion {
+    font-size: 10px;
+  }
+}
+/*Calendar Mobile view ends*/
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

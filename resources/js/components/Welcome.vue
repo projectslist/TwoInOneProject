@@ -2,8 +2,8 @@
     <main>
 <Header />
 
-        <div class="container-wrapper">
-            <div class="content">
+        <div class="container-wrapper" >
+            <div class="content" style="margin-bottom: 300px;">
                 <div class="container-fluid">
                     <div class="row bg-gray-light">
 
