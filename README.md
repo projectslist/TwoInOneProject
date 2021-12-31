@@ -12,5 +12,6 @@ Please follow below steps after cloning the project from github!
 5. Run php artisan migrate
 6. Run php artisan db:seed
 7. Run php artisan serve
-8. Run npm run watch
-8. Go to link localhost:8000 OR 127.0.0.1:8000
+8. Run npm run dev
+9. Run npm run watch
+10. Go to link localhost:8000 OR 127.0.0.1:8000
