@@ -15,4 +15,4 @@ Please follow below steps after cloning the project from github!
 8. Run npm run dev
 9. Run npm run watch
 10. Go to link localhost:8000 OR 127.0.0.1:8000
-11 - If you want, you can check out the project from http://3.250.136.176/ . It is a AWS server. You can see how the project works.
+11- If you want, you can check out the project from http://3.250.136.176/ . It is a AWS server. You can see how the project works.
